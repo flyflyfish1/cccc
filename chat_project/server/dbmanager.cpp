@@ -1,0 +1,150 @@
+#include "dbmanager.h"
+
+#include <QSqlDatabase>
+#include <QSqlError>
+#include <QSqlQuery>
+#include <QThread>
+#include <QMutexLocker>
+
+DBManager::DBManager(const QString &dbPath, QObject *parent)
+    : QObject(parent),
+      m_dbPath(dbPath)
+{
+}
+
+QString DBManager::connectionNameForCurrentThread() const
+{
+    return QString("server_db_%1").arg(reinterpret_cast<quintptr>(QThread::currentThreadId()));
+}
+
+bool DBManager::ensureConnection(QString *errorMessage)
+{
+    const QString connectionName = connectionNameForCurrentThread();
+    if (QSqlDatabase::contains(connectionName)) {
+        QSqlDatabase db = QSqlDatabase::database(connectionName);
+        if (db.isOpen() || db.open()) {
+            return true;
+        }
+        if (errorMessage) {
+            *errorMessage = db.lastError().text();
+        }
+        return false;
+    }
+
+    QSqlDatabase db = QSqlDatabase::addDatabase("QSQLITE", connectionName);
+    db.setDatabaseName(m_dbPath);
+    if (!db.open()) {
+        if (errorMessage) {
+            *errorMessage = db.lastError().text();
+        }
+        return false;
+    }
+    return true;
+}
+
+bool DBManager::initDatabase(QString *errorMessage)
+{
+    QMutexLocker locker(&m_mutex);
+    if (!ensureConnection(errorMessage)) {
+        return false;
+    }
+
+    QSqlDatabase db = QSqlDatabase::database(connectionNameForCurrentThread());
+    QSqlQuery query(db);
+
+    const QString createUsersSql =
+        "CREATE TABLE IF NOT EXISTS users ("
+        "id INTEGER PRIMARY KEY AUTOINCREMENT,"
+        "username TEXT UNIQUE NOT NULL,"
+        "password TEXT NOT NULL"
+        ")";
+    const QString createMessagesSql =
+        "CREATE TABLE IF NOT EXISTS messages ("
+        "id INTEGER PRIMARY KEY AUTOINCREMENT,"
+        "sender TEXT NOT NULL,"
+        "receiver TEXT NOT NULL,"
+        "content TEXT NOT NULL,"
+        "send_time TEXT NOT NULL"
+        ")";
+
+    if (!query.exec(createUsersSql)) {
+        if (errorMessage) {
+            *errorMessage = query.lastError().text();
+        }
+        return false;
+    }
+    if (!query.exec(createMessagesSql)) {
+        if (errorMessage) {
+            *errorMessage = query.lastError().text();
+        }
+        return false;
+    }
+    return true;
+}
+
+bool DBManager::registerUser(const QString &username, const QString &password, QString *errorMessage)
+{
+    QMutexLocker locker(&m_mutex);
+    if (!ensureConnection(errorMessage)) {
+        return false;
+    }
+
+    QSqlDatabase db = QSqlDatabase::database(connectionNameForCurrentThread());
+    QSqlQuery query(db);
+    query.prepare("INSERT INTO users(username, password) VALUES(:username, :password)");
+    query.bindValue(":username", username);
+    query.bindValue(":password", password);
+    if (!query.exec()) {
+        if (errorMessage) {
+            *errorMessage = query.lastError().text();
+        }
+        return false;
+    }
+    return true;
+}
+
+bool DBManager::validateUser(const QString &username, const QString &password, QString *errorMessage)
+{
+    QMutexLocker locker(&m_mutex);
+    if (!ensureConnection(errorMessage)) {
+        return false;
+    }
+
+    QSqlDatabase db = QSqlDatabase::database(connectionNameForCurrentThread());
+    QSqlQuery query(db);
+    query.prepare("SELECT id FROM users WHERE username = :username AND password = :password");
+    query.bindValue(":username", username);
+    query.bindValue(":password", password);
+    if (!query.exec()) {
+        if (errorMessage) {
+            *errorMessage = query.lastError().text();
+        }
+        return false;
+    }
+    return query.next();
+}
+
+bool DBManager::saveMessage(const QString &sender, const QString &receiver, const QString &content, const QString &sendTime, QString *errorMessage)
+{
+    QMutexLocker locker(&m_mutex);
+    if (!ensureConnection(errorMessage)) {
+        return false;
+    }
+
+    QSqlDatabase db = QSqlDatabase::database(connectionNameForCurrentThread());
+    QSqlQuery query(db);
+    query.prepare(
+        "INSERT INTO messages(sender, receiver, content, send_time) "
+        "VALUES(:sender, :receiver, :content, :send_time)");
+    query.bindValue(":sender", sender);
+    query.bindValue(":receiver", receiver);
+    query.bindValue(":content", content);
+    query.bindValue(":send_time", sendTime);
+    if (!query.exec()) {
+        if (errorMessage) {
+            *errorMessage = query.lastError().text();
+        }
+        return false;
+    }
+    return true;
+}
