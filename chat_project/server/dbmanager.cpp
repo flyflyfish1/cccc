@@ -4,6 +4,7 @@
 #include <QSqlError>
 #include <QSqlQuery>
 #include <QThread>
+#include <QVariant>
 #include <QMutexLocker>
 
 DBManager::DBManager(const QString &dbPath, QObject *parent)
@@ -92,8 +93,8 @@ bool DBManager::registerUser(const QString &username, const QString &password, Q
     QSqlDatabase db = QSqlDatabase::database(connectionNameForCurrentThread());
     QSqlQuery query(db);
     query.prepare("INSERT INTO users(username, password) VALUES(:username, :password)");
-    query.bindValue(":username", username);
-    query.bindValue(":password", password);
+    query.bindValue(":username", QVariant(username));
+    query.bindValue(":password", QVariant(password));
     if (!query.exec()) {
         if (errorMessage) {
             *errorMessage = query.lastError().text();
@@ -113,8 +114,8 @@ bool DBManager::validateUser(const QString &username, const QString &password, Q
     QSqlDatabase db = QSqlDatabase::database(connectionNameForCurrentThread());
     QSqlQuery query(db);
     query.prepare("SELECT id FROM users WHERE username = :username AND password = :password");
-    query.bindValue(":username", username);
-    query.bindValue(":password", password);
+    query.bindValue(":username", QVariant(username));
+    query.bindValue(":password", QVariant(password));
     if (!query.exec()) {
         if (errorMessage) {
             *errorMessage = query.lastError().text();
@@ -136,10 +137,10 @@ bool DBManager::saveMessage(const QString &sender, const QString &receiver, cons
     query.prepare(
         "INSERT INTO messages(sender, receiver, content, send_time) "
         "VALUES(:sender, :receiver, :content, :send_time)");
-    query.bindValue(":sender", sender);
-    query.bindValue(":receiver", receiver);
-    query.bindValue(":content", content);
-    query.bindValue(":send_time", sendTime);
+    query.bindValue(":sender", QVariant(sender));
+    query.bindValue(":receiver", QVariant(receiver));
+    query.bindValue(":content", QVariant(content));
+    query.bindValue(":send_time", QVariant(sendTime));
     if (!query.exec()) {
         if (errorMessage) {
             *errorMessage = query.lastError().text();

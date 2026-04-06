@@ -1,0 +1,13 @@
+release/main.o
+release/loginwindow.o
+release/registerwindow.o
+release/mainwindow.o
+release/chatwindow.o
+release/networkclient.o
+release/filehelper.o
+release/protocol.o
+release/moc_loginwindow.o
+release/moc_registerwindow.o
+release/moc_mainwindow.o
+release/moc_chatwindow.o
+release/moc_networkclient.o

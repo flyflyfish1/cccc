@@ -1,0 +1,13 @@
+debug/main.o
+debug/loginwindow.o
+debug/registerwindow.o
+debug/mainwindow.o
+debug/chatwindow.o
+debug/networkclient.o
+debug/filehelper.o
+debug/protocol.o
+debug/moc_loginwindow.o
+debug/moc_registerwindow.o
+debug/moc_mainwindow.o
+debug/moc_chatwindow.o
+debug/moc_networkclient.o
