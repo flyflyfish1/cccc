@@ -1,6 +1,16 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\chat_project",
+    "\\chat_project\\config",
+    "\\chat_project\\database",
+    "\\chat_project\\deploy\\bin",
+    "\\chat_project\\deploy\\config",
+    "\\chat_project\\deploy\\database",
+    "\\chat_project\\deploy\\web_client",
+    "\\chat_project\\web_client",
+    "\\chat_project\\web_gateway"
   ],
+  "SelectedNode": "\\chat_project\\web_gateway\\bridgesession.cpp",
   "PreviewInSolutionExplorer": false
 }

@@ -1,0 +1,27 @@
+# Build output
+client/debug/
+client/release/
+server/debug/
+server/release/
+web_gateway/debug/
+web_gateway/release/
+
+# qmake generated files
+client/Makefile.generated*
+server/Makefile.generated*
+web_gateway/Makefile.generated*
+client/.qmake.stash
+server/.qmake.stash
+web_gateway/.qmake.stash
+client/object_script.*
+
+# Runtime data in source tree
+logs/
+history/
+database/chat.db
+web_client/http.out.log
+web_client/http.err.log
+
+# OS/editor noise
+*.tmp
+*.bak
