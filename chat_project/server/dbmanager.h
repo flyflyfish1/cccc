@@ -3,6 +3,7 @@
 
 #include <QMutex>
 #include <QObject>
+#include <QJsonArray>
 #include <QString>
 
 class DBManager : public QObject
@@ -15,6 +16,7 @@ public:
     bool registerUser(const QString &username, const QString &password, QString *errorMessage = nullptr);
     bool validateUser(const QString &username, const QString &password, QString *errorMessage = nullptr);
     bool saveMessage(const QString &sender, const QString &receiver, const QString &content, const QString &sendTime, QString *errorMessage = nullptr);
+    QJsonArray loadConversation(const QString &userA, const QString &userB, QString *errorMessage = nullptr);
 
 private:
     QString connectionNameForCurrentThread() const;

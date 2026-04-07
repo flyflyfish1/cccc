@@ -195,6 +195,16 @@ debug/moc_chatserver.cpp: chatserver.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtCore/qsharedpointer.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtCore/qsharedpointer_impl.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtCore/QMutex \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/QJsonArray \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qjsonarray.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qjsonvalue.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qcborvalue.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qdatetime.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qcborcommon.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qregularexpression.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qurl.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qurlquery.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/quuid.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtNetwork/QTcpServer \
 		C:/Qt/5.15.2/mingw81_64/include/QtNetwork/qtcpserver.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtNetwork/qtnetworkglobal.h \
@@ -345,6 +355,28 @@ debug/moc_dbmanager.cpp: dbmanager.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtCore/qvarlengtharray.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtCore/qcontainerfwd.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtCore/qobject_impl.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/QJsonArray \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qjsonarray.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qjsonvalue.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qshareddata.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qhash.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qcborvalue.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qdatetime.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qcborcommon.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qdebug.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qmap.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qtextstream.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qiodevice.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qlocale.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qvariant.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qset.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qcontiguouscache.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qsharedpointer.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qsharedpointer_impl.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qregularexpression.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qurl.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qurlquery.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/quuid.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtCore/QString \
 		debug/moc_predefs.h \
 		C:/Qt/5.15.2/mingw81_64/bin/moc.exe
@@ -433,6 +465,16 @@ debug/main.o: main.cpp chatserver.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtCore/qsharedpointer.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtCore/qsharedpointer_impl.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtCore/QMutex \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/QJsonArray \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qjsonarray.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qjsonvalue.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qcborvalue.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qdatetime.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qcborcommon.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qregularexpression.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qurl.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qurlquery.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/quuid.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtNetwork/QTcpServer \
 		C:/Qt/5.15.2/mingw81_64/include/QtNetwork/qtcpserver.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtNetwork/qtnetworkglobal.h \
@@ -524,6 +566,16 @@ debug/chatserver.o: chatserver.cpp chatserver.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtCore/qsharedpointer.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtCore/qsharedpointer_impl.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtCore/QMutex \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/QJsonArray \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qjsonarray.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qjsonvalue.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qcborvalue.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qdatetime.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qcborcommon.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qregularexpression.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qurl.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qurlquery.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/quuid.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtNetwork/QTcpServer \
 		C:/Qt/5.15.2/mingw81_64/include/QtNetwork/qtcpserver.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtNetwork/qtnetworkglobal.h \
@@ -534,14 +586,6 @@ debug/chatserver.o: chatserver.cpp chatserver.h \
 		clienthandler.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtCore/QJsonObject \
 		C:/Qt/5.15.2/mingw81_64/include/QtCore/qjsonobject.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtCore/qjsonvalue.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtCore/qcborvalue.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtCore/qdatetime.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtCore/qcborcommon.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtCore/qregularexpression.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtCore/qurl.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtCore/qurlquery.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtCore/quuid.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtCore/QThread \
 		C:/Qt/5.15.2/mingw81_64/include/QtCore/qthread.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtCore/qdeadlinetimer.h \
@@ -637,6 +681,8 @@ debug/clienthandler.o: clienthandler.cpp clienthandler.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtCore/qelapsedtimer.h \
 		chatserver.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtCore/QMap \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/QJsonArray \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qjsonarray.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtNetwork/QTcpServer \
 		C:/Qt/5.15.2/mingw81_64/include/QtNetwork/qtcpserver.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtNetwork/qtnetworkglobal.h \
@@ -711,6 +757,28 @@ debug/dbmanager.o: dbmanager.cpp dbmanager.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtCore/qvarlengtharray.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtCore/qcontainerfwd.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtCore/qobject_impl.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/QJsonArray \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qjsonarray.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qjsonvalue.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qshareddata.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qhash.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qcborvalue.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qdatetime.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qcborcommon.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qdebug.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qmap.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qtextstream.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qiodevice.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qlocale.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qvariant.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qset.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qcontiguouscache.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qsharedpointer.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qsharedpointer_impl.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qregularexpression.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qurl.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qurlquery.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/quuid.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtCore/QString \
 		C:/Qt/5.15.2/mingw81_64/include/QtSql/QSqlDatabase \
 		C:/Qt/5.15.2/mingw81_64/include/QtSql/qsqldatabase.h \
@@ -724,19 +792,9 @@ debug/dbmanager.o: dbmanager.cpp dbmanager.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtCore/qthread.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtCore/qdeadlinetimer.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtCore/qelapsedtimer.h \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/QJsonObject \
+		C:/Qt/5.15.2/mingw81_64/include/QtCore/qjsonobject.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtCore/QVariant \
-		C:/Qt/5.15.2/mingw81_64/include/QtCore/qvariant.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtCore/qmap.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtCore/qdebug.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtCore/qhash.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtCore/qtextstream.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtCore/qiodevice.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtCore/qlocale.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtCore/qshareddata.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtCore/qset.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtCore/qcontiguouscache.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtCore/qsharedpointer.h \
-		C:/Qt/5.15.2/mingw81_64/include/QtCore/qsharedpointer_impl.h \
 		C:/Qt/5.15.2/mingw81_64/include/QtCore/QMutexLocker
 	$(CXX) -c $(CXXFLAGS) $(INCPATH) -o debug\dbmanager.o dbmanager.cpp
 

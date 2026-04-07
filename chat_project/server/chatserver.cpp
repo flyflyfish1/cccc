@@ -131,6 +131,17 @@ bool ChatServer::forwardChatMessage(const QString &from, const QString &to, cons
     return true;
 }
 
+QJsonArray ChatServer::loadConversation(const QString &userA, const QString &userB, QString *errorMessage)
+{
+    if (!m_dbManager) {
+        if (errorMessage) {
+            *errorMessage = "Database manager is null.";
+        }
+        return QJsonArray();
+    }
+    return m_dbManager->loadConversation(userA, userB, errorMessage);
+}
+
 QStringList ChatServer::onlineUsers() const
 {
     QMutexLocker locker(&m_mutex);

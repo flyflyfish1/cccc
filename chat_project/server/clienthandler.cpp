@@ -140,6 +140,28 @@ void ClientHandler::processMessage(const QJsonObject &obj)
         return;
     }
 
+    if (type == "history_request") {
+        const QString user = obj.value("user").toString().trimmed();
+        const QString peer = obj.value("peer").toString().trimmed();
+        if (user.isEmpty() || peer.isEmpty()) {
+            sendResponse("history_reply", "error", "Invalid history request.");
+            return;
+        }
+
+        QString error;
+        const QJsonArray records = m_server->loadConversation(user, peer, &error);
+        QJsonObject reply;
+        reply["type"] = "history_reply";
+        reply["status"] = error.isEmpty() ? "ok" : "error";
+        reply["user"] = user;
+        reply["peer"] = peer;
+        reply["records"] = records;
+        reply["message"] = error.isEmpty() ? "History loaded." : error;
+        reply["time"] = Protocol::currentTimeString();
+        sendJson(reply);
+        return;
+    }
+
     if (type == "userlist_request") {
         sendJson(Protocol::createUserListMessage(m_server->onlineUsers()));
         return;

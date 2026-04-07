@@ -3,6 +3,7 @@
 
 #include <QMap>
 #include <QMutex>
+#include <QJsonArray>
 #include <QTcpServer>
 #include <QStringList>
 
@@ -21,6 +22,7 @@ public:
     bool loginUser(const QString &username, const QString &password, ClientHandler *handler, QString *errorMessage = nullptr);
     void logoutUser(const QString &username);
     bool forwardChatMessage(const QString &from, const QString &to, const QString &message, const QString &time, QString *errorMessage = nullptr);
+    QJsonArray loadConversation(const QString &userA, const QString &userB, QString *errorMessage = nullptr);
     QStringList onlineUsers() const;
     void sendUserListToAllClients();
 

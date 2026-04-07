@@ -4,6 +4,8 @@
 #include <QSqlError>
 #include <QSqlQuery>
 #include <QThread>
+#include <QJsonArray>
+#include <QJsonObject>
 #include <QVariant>
 #include <QMutexLocker>
 
@@ -148,4 +150,43 @@ bool DBManager::saveMessage(const QString &sender, const QString &receiver, cons
         return false;
     }
     return true;
+}
+
+QJsonArray DBManager::loadConversation(const QString &userA, const QString &userB, QString *errorMessage)
+{
+    QMutexLocker locker(&m_mutex);
+    QJsonArray result;
+
+    if (!ensureConnection(errorMessage)) {
+        return result;
+    }
+
+    QSqlDatabase db = QSqlDatabase::database(connectionNameForCurrentThread());
+    QSqlQuery query(db);
+    query.prepare(
+        "SELECT sender, receiver, content, send_time "
+        "FROM messages "
+        "WHERE (sender = :userA AND receiver = :userB) "
+        "   OR (sender = :userB AND receiver = :userA) "
+        "ORDER BY id ASC");
+    query.bindValue(":userA", QVariant(userA));
+    query.bindValue(":userB", QVariant(userB));
+
+    if (!query.exec()) {
+        if (errorMessage) {
+            *errorMessage = query.lastError().text();
+        }
+        return result;
+    }
+
+    while (query.next()) {
+        QJsonObject item;
+        item["sender"] = query.value(0).toString();
+        item["receiver"] = query.value(1).toString();
+        item["content"] = query.value(2).toString();
+        item["time"] = query.value(3).toString();
+        result.append(item);
+    }
+
+    return result;
 }
