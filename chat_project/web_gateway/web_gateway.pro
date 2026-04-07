@@ -10,8 +10,10 @@ INCLUDEPATH += ../shared
 SOURCES += \
     main.cpp \
     bridgesession.cpp \
+    staticfileserver.cpp \
     ../shared/protocol.cpp
 
 HEADERS += \
     bridgesession.h \
+    staticfileserver.h \
     ../shared/protocol.h

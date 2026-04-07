@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Chat Project Web Demo</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <section class="auth-shell" id="authShell">
+    <div class="auth-hero">
+      <div class="brand">
+        <div class="brand-mark">CP</div>
+        <div>
+          <div class="brand-name">校园聊天系统</div>
+          <div class="brand-sub">课程聊天系统</div>
+        </div>
+      </div>
+      <h1 class="auth-title">欢迎使用课程聊天系统</h1>
+      <p class="auth-copy">请先登录账号，再进入主页面查看在线用户并开始聊天。</p>
+    </div>
+
+    <div class="auth-panel" id="authPanel">
+      <div class="auth-tabs">
+        <button id="showLoginBtn" class="tab-button active">登录</button>
+        <button id="showRegisterBtn" class="tab-button">注册</button>
+      </div>
+
+        <div class="auth-card active" id="loginCard">
+          <div class="panel-title">登录界面</div>
+          <button id="toggleSettingsBtn" class="ghost settings-toggle">连接设置</button>
+          <div class="settings-panel hidden" id="settingsPanel">
+            <label class="field">
+              <span>服务器地址</span>
+              <input id="wsUrl" type="text" value="ws://127.0.0.1:9999">
+            </label>
+          </div>
+          <label class="field">
+            <span>用户名</span>
+            <input id="loginUsername" type="text" placeholder="alice">
+        </label>
+        <label class="field">
+          <span>密码</span>
+          <input id="loginPassword" type="password" placeholder="123456">
+        </label>
+        <div class="button-row">
+            <button id="connectBtn" class="ghost">连接</button>
+            <button id="loginBtn" class="primary">登录</button>
+          </div>
+      </div>
+
+      <div class="auth-card" id="registerCard">
+        <div class="panel-title">注册界面</div>
+        <label class="field">
+          <span>用户名</span>
+          <input id="registerUsername" type="text" placeholder="bob">
+        </label>
+        <label class="field">
+          <span>密码</span>
+          <input id="registerPassword" type="password" placeholder="123456">
+        </label>
+        <div class="button-row">
+          <button id="registerBtn" class="primary">提交注册</button>
+        </div>
+      </div>
+
+      <div class="tip" id="statusText">等待连接。</div>
+    </div>
+  </section>
+
+  <div class="shell hidden" id="mainShell">
+    <aside class="rail">
+        <div class="brand compact">
+          <div class="brand-mark">CP</div>
+          <div>
+            <div class="brand-name">校园聊天系统</div>
+            <div class="brand-sub">课程聊天系统</div>
+          </div>
+        </div>
+
+      <section class="user-panel">
+        <div class="panel-head">
+          <div class="panel-title">在线用户</div>
+          <button id="refreshBtn" class="ghost">刷新</button>
+        </div>
+        <div class="list" id="onlineUsers"></div>
+      </section>
+
+      <section class="session-panel">
+        <div class="panel-head">
+          <div class="panel-title">会话</div>
+          <button id="exportBtn" class="ghost">导出记录</button>
+        </div>
+        <div class="list" id="conversationList"></div>
+      </section>
+    </aside>
+
+    <main class="workspace">
+      <header class="workspace-head">
+        <div>
+          <div class="workspace-title" id="chatTitle">请选择一个联系人</div>
+          <div class="workspace-sub" id="chatSub"></div>
+        </div>
+        <div class="badge" id="currentUserBadge">未登录</div>
+      </header>
+
+      <section class="messages" id="messages"></section>
+
+      <footer class="composer">
+        <textarea id="messageInput" rows="3" placeholder="输入聊天内容，按 Enter 发送，Shift + Enter 换行。"></textarea>
+        <button id="sendBtn" class="primary">发送</button>
+      </footer>
+    </main>
+  </div>
+
+  <script src="./app.js"></script>
+</body>
+</html>

@@ -1,8 +1,10 @@
 #include "bridgesession.h"
+#include "staticfileserver.h"
 
 #include <QCoreApplication>
 #include <QDir>
 #include <QFile>
+#include <QHostAddress>
 #include <QTextStream>
 #include <QWebSocketServer>
 
@@ -20,7 +22,7 @@ static QString projectRootPath()
     return QCoreApplication::applicationDirPath();
 }
 
-static void readConfig(QString *host, quint16 *tcpPort, quint16 *wsPort)
+static void readConfig(QString *host, quint16 *tcpPort, quint16 *wsPort, quint16 *httpPort)
 {
     if (host) {
         *host = "127.0.0.1";
@@ -30,6 +32,9 @@ static void readConfig(QString *host, quint16 *tcpPort, quint16 *wsPort)
     }
     if (wsPort) {
         *wsPort = 9999;
+    }
+    if (httpPort) {
+        *httpPort = 8080;
     }
 
     QFile file(projectRootPath() + "/config/server.conf");
@@ -59,6 +64,8 @@ static void readConfig(QString *host, quint16 *tcpPort, quint16 *wsPort)
             *tcpPort = static_cast<quint16>(parsed);
         } else if (key == "ws_port" && wsPort && ok) {
             *wsPort = static_cast<quint16>(parsed);
+        } else if (key == "http_port" && httpPort && ok) {
+            *httpPort = static_cast<quint16>(parsed);
         }
     }
 }
@@ -70,11 +77,18 @@ int main(int argc, char *argv[])
     QString host;
     quint16 tcpPort = 8888;
     quint16 wsPort = 9999;
-    readConfig(&host, &tcpPort, &wsPort);
+    quint16 httpPort = 8080;
+    readConfig(&host, &tcpPort, &wsPort, &httpPort);
 
     QWebSocketServer server("chat_web_gateway", QWebSocketServer::NonSecureMode);
     if (!server.listen(QHostAddress::Any, wsPort)) {
         qCritical("Web gateway listen failed.");
+        return -1;
+    }
+
+    StaticFileServer staticServer(projectRootPath() + "/web_client");
+    if (!staticServer.listen(QHostAddress::Any, httpPort)) {
+        qCritical("Static file server listen failed.");
         return -1;
     }
 
