@@ -1,0 +1,14 @@
+[2026-04-07 00:36:19] Server is starting.
+[2026-04-07 00:36:19] Server started at port 8888
+[2026-04-07 00:36:47] New client connected. descriptor=724
+[2026-04-07 00:36:50] Register success: 111
+[2026-04-07 00:36:57] User login success: 111
+[2026-04-07 00:37:33] New client connected. descriptor=704
+[2026-04-07 00:37:36] Register success: 222
+[2026-04-07 00:37:40] User login success: 222
+[2026-04-07 00:37:46] Message forwarded: 222 -> 111
+[2026-04-07 00:38:11] Message forwarded: 111 -> 222
+[2026-04-07 00:38:50] Client disconnected. user=222
+[2026-04-07 00:38:50] User logout: 222
+[2026-04-07 00:38:51] Client disconnected. user=111
+[2026-04-07 00:38:51] User logout: 111
